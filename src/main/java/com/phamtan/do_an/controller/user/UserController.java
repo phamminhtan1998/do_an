@@ -1,6 +1,6 @@
-package com.phamtan.do_an.controllers;
+package com.phamtan.do_an.controller.user;
 
-import com.phamtan.do_an.entities.CustomerUserDetails;
+import com.phamtan.do_an.dao.entities.CustomerUserDetails;
 import com.phamtan.do_an.jwt.JwtProvider;
 import com.phamtan.do_an.jwt.request.LoginRequest;
 import com.phamtan.do_an.jwt.response.LoginResponse;
@@ -24,12 +24,13 @@ public class UserController {
     @Autowired
     private JwtProvider jwtProvider ;
     @PostMapping(value = "/login",produces = MediaType.APPLICATION_JSON_VALUE)
-    public  LoginResponse authenticateUser(@Valid @RequestBody LoginRequest loginRequest){
+    public  LoginResponse authenticateUser( @RequestBody LoginRequest loginRequest){
 
-        System.out.println(loginRequest.getUsername()+"this is username of the controller get ");
+        System.out.println("running in the controller ");
 
       Authentication authencation =   authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),loginRequest.getPassword()));
-        SecurityContextHolder.getContext().setAuthentication(authencation);
+
+      SecurityContextHolder.getContext().setAuthentication(authencation);
         String jwt = jwtProvider.generateJwtToken((CustomerUserDetails) authencation.getPrincipal());
         return new LoginResponse(jwt);
     }

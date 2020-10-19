@@ -28,26 +28,36 @@ public class JwtAuthencationFilter  extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         try{
-            String jwt = getTokenFromRequest(httpServletRequest);
-/*
-*  check if has jwt token and is it validated
-*   get the username from jwt
-*   Check the user in in the database
-*   if the user is accepted  set the info security context
-* */
-            if(StringUtils.hasText(jwt)&&jwtProvider.validateJwtToken(jwt)){
-              String username =  jwtProvider.getUsernameFromToken(jwt);
-              UserDetails userDetails = customerUserDetailsService.loadUserByUsername(username);
 
-              if(userDetails!=null){
-                  UsernamePasswordAuthenticationToken authencation = new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
+
+            HttpServletRequest servletToUse = httpServletRequest ;
+
+                String jwt = getTokenFromRequest(servletToUse);
+                if(jwt==null){
+                    SecurityContextHolder.clearContext();
+                    filterChain.doFilter(httpServletRequest,httpServletResponse);
+                }
+                /*
+                 *  check if has jwt token and is it validated
+                 *   get the username from jwt
+                 *   Check the user in in the database
+                 *   if the user is accepted  set the info security context
+                 * */
+                if(StringUtils.hasText(jwt)&&jwtProvider.validateJwtToken(jwt)){
+                    String username =  jwtProvider.getUsernameFromToken(jwt);
+                    UserDetails userDetails = customerUserDetailsService.loadUserByUsername(username);
+
+                    if(userDetails!=null){
+                        UsernamePasswordAuthenticationToken authencation = new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
 // set the user details tho the current request
-                  authencation.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpServletRequest));
+                        authencation.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpServletRequest));
 //  get the context  of spring to  set authencation
-                  SecurityContextHolder.getContext().setAuthentication(authencation );
-              }
-            }
-
+                        SecurityContextHolder.getContext().setAuthentication(authencation );
+                    }
+                }
+                else{
+                    SecurityContextHolder.clearContext();
+                }
         }
         catch (Exception e){
             SecurityContextHolder.clearContext();

@@ -1,6 +1,6 @@
 package com.phamtan.do_an.jwt;
 
-import com.phamtan.do_an.entities.CustomerUserDetails;
+import com.phamtan.do_an.dao.entities.CustomerUserDetails;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

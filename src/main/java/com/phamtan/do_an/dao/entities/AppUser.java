@@ -1,9 +1,8 @@
-package com.phamtan.do_an.entities;
+package com.phamtan.do_an.dao.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 

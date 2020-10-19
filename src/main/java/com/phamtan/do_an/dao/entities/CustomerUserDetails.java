@@ -1,4 +1,4 @@
-package com.phamtan.do_an.entities;
+package com.phamtan.do_an.dao.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

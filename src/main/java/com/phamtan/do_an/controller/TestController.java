@@ -1,6 +1,8 @@
-package com.phamtan.do_an.controllers;
+package com.phamtan.do_an.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -11,8 +13,10 @@ public class TestController {
         return "Hello ";
     }
 
-    @GetMapping(value = "/home")
+    @RequestMapping(value = "/home",method = RequestMethod.GET)
     public String test(){
+
+        System.out.println("====================home part");
         return "Hello ///";
     }
     @GetMapping(value = "/")
