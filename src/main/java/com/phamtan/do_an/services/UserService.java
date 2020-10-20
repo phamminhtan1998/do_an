@@ -5,6 +5,7 @@ import com.phamtan.do_an.dao.repositories.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 
 
 public interface UserService {
@@ -13,6 +14,7 @@ public interface UserService {
   public long deleteUser(AppUser appUser);
   public AppUser findUser(long id);
   public AppUser findUserByUserName(String username);
+  public List<AppUser> findALlUser();
 
 
 }

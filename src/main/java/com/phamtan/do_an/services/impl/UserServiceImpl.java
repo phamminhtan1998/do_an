@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -48,4 +50,12 @@ public class UserServiceImpl implements UserService {
         AppUser appUser = appUserRepository.findByUsername(username);
         return appUser ;
     }
+
+    @Override
+    public List<AppUser> findALlUser() {
+        List<AppUser> list = appUserRepository.findAll();
+        if(list!=null)return list;
+        return null;
+    }
+
 }
