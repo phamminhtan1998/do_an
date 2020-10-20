@@ -18,26 +18,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableAutoConfiguration
 @ComponentScan
 
-public class DoAnPtit2020Application implements CommandLineRunner {
+public class DoAnPtit2020Application  {
 
-	@Autowired
-	private AppUserRepository  appUserRepository;
 
-	@Autowired
-	 PasswordEncoder bCryPasswordEncoder ;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DoAnPtit2020Application.class, args);
 
 	}
 
-	@Override
-	public void run(String... args) throws Exception {
-		AppUser appUser = new AppUser();
-		appUser.setId(1);
-		appUser.setUsername("dieulinh");
-		appUser.setPassword(bCryPasswordEncoder.encode("em"));
-		appUserRepository.save(appUser);
-		System.out.println(appUser);
-	}
+
 }

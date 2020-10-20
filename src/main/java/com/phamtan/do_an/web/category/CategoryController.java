@@ -1,9 +1,8 @@
-package com.phamtan.do_an.controller.category;
+package com.phamtan.do_an.web.category;
 
 import com.phamtan.do_an.dao.entities.Category;
 import com.phamtan.do_an.services.impl.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

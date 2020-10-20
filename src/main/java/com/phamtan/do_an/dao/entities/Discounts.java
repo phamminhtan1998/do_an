@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table(name = "discount")
 @Data
 @RequiredArgsConstructor
-public class discounts {
+public class Discounts {
     @Id
     @GeneratedValue
     private long id ;

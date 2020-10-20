@@ -1,7 +1,6 @@
-package com.phamtan.do_an.controller.book;
+package com.phamtan.do_an.web.book;
 
 import com.phamtan.do_an.dao.entities.Book;
-import com.phamtan.do_an.services.BookService;
 import com.phamtan.do_an.services.impl.BookServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;

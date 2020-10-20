@@ -5,6 +5,7 @@ import com.phamtan.do_an.dao.entities.AppUser;
 import com.phamtan.do_an.dao.repositories.AppUserRepository;
 import com.phamtan.do_an.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,15 +13,20 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private AppUserRepository appUserRepository ;
+    @Autowired
+    PasswordEncoder bcryptEncoder ;
+
 
     @Override
     public long saveUser(AppUser appUser) {
+        appUser.setPassword(bcryptEncoder.encode(appUser.getPassword()));
          appUserRepository.save(appUser);
          return appUser.getId();
     }
 
     @Override
     public long updateUser(AppUser appUser) {
+        appUser.setPassword(bcryptEncoder.encode(appUser.getPassword()));
         appUserRepository.save(appUser);
         return appUser.getId();
     }

@@ -1,12 +1,9 @@
-package com.phamtan.do_an.controller.user;
+package com.phamtan.do_an.web.user;
 
 import com.phamtan.do_an.dao.entities.AppUser;
-import com.phamtan.do_an.services.UserService;
 import com.phamtan.do_an.services.impl.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

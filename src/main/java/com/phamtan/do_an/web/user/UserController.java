@@ -1,4 +1,4 @@
-package com.phamtan.do_an.controller.user;
+package com.phamtan.do_an.web.user;
 
 import com.phamtan.do_an.dao.entities.CustomerUserDetails;
 import com.phamtan.do_an.jwt.JwtProvider;
@@ -13,8 +13,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.validation.Valid;
 
 @RestController
 public class UserController {

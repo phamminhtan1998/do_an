@@ -10,7 +10,7 @@ import java.util.Date;
 @Table(name = "review")
 @Data
 @RequiredArgsConstructor
-public class Reviews {
+public class Review {
     @Id
     @GeneratedValue
     private long id ;
