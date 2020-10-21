@@ -20,6 +20,11 @@ Using mvn clean install -DskipTests
 
 Using python to scapt data from tiki.vn to migrate to the do_an_tot_nghiep database   
 Ensure that you installed python version >3 to run that file 
+To scrapt data from Tiki using command line 
+```sh
+Run python3 namefile 
+```
+
 
 
 ## Show your support
