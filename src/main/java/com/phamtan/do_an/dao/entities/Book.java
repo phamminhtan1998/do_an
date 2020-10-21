@@ -1,8 +1,10 @@
 package com.phamtan.do_an.dao.entities;
 
 import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity(name = "book")
 @Table(name = "book")
@@ -24,7 +26,7 @@ public class Book {
     @Column(name = "weight")
     private int weight;
     @Column(name = "year_publish")
-    private int yearPublish;
+    private String yearPublish;
     @Column(name = "number_page")
     private int numberPage;
     @Column(name = "sale")
@@ -33,4 +35,7 @@ public class Book {
     private String language;
     @Column(name = "image_url")
     private String image_url;
+    @Column(name = "publisher")
+    private String publisher;
+
 }
